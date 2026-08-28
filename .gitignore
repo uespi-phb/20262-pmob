@@ -1,0 +1,107 @@
+# ================================================================
+# Monorepository with Flutter/Dart projects
+# Place this file at the repository root.
+# ================================================================
+
+# --- Operating systems and temporary files -----------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# --- Logs ---------------------------------------------------------
+*.log
+
+# --- IDEs and editors ---------------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# --- Dart / Flutter / Pub -----------------------------------------
+**/.dart_tool/
+**/.packages
+**/.pub/
+**/.pub-cache/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/build/
+**/coverage/
+**/doc/api/
+**/.flutter_tool_state
+**/migrate_working_dir/
+
+# Generated symbols and obfuscation maps
+**/app.*.symbols
+**/app.*.map.json
+
+# --- Android / Gradle ---------------------------------------------
+**/android/.gradle/
+**/android/captures/
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+**/android/*.jks
+**/android/*.keystore
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# --- iOS / CocoaPods ----------------------------------------------
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/App.framework/
+**/ios/Flutter/Flutter.framework/
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Runner.xcworkspace/xcuserdata/
+**/ios/Runner.xcodeproj/xcuserdata/
+
+# --- macOS / CocoaPods --------------------------------------------
+**/macos/Pods/
+**/macos/.symlinks/
+**/macos/Flutter/ephemeral/
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Runner.xcworkspace/xcuserdata/
+**/macos/Runner.xcodeproj/xcuserdata/
+
+# --- Linux and Windows generated files ----------------------------
+**/linux/flutter/ephemeral/
+**/windows/flutter/ephemeral/
+
+# --- Test and analysis caches -------------------------------------
+**/.test_coverage.dart
+**/.fvm/flutter_sdk/
+
+# Keep an FVM project configuration when it exists.
+!**/.fvmrc
+!**/.fvm/fvm_config.json
+
+# --- Environment files and secrets --------------------------------
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.template
+
+# Certificates and private keys
+**/*.pem
+**/*.p12
+**/*.pfx
+**/*.mobileprovision
+
+# --- Firebase local/generated configuration -----------------------
+**/.firebase/
+**/firebase-debug.log
+**/firestore-debug.log
+**/ui-debug.log
+
+# Do not ignore pubspec.lock: commit it for Flutter applications so
+# dependency versions remain reproducible across developers and CI.
