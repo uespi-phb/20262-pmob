@@ -1,0 +1,27 @@
+name: dices
+description: "A simple dice rolling app."
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/dice1.png
+    - assets/images/dice2.png
+    - assets/images/dice3.png
+    - assets/images/dice4.png
+    - assets/images/dice5.png
+    - assets/images/dice6.png
