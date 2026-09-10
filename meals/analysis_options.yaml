@@ -20,9 +20,9 @@ analyzer:
     - linux/**
 
 formatter:
+  page_width: 100
   trailing_commas: preserve
-  page_width: 80
-  
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
