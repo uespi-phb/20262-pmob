@@ -16,7 +16,7 @@ class Meal {
   final String id;
   final String title;
   final String imageUrl;
-  final List<MealCategory> categories;
+  final List<String> categories;
   final List<String> ingredients;
   final List<String> steps;
   final int durationInMinutes;
@@ -42,6 +42,6 @@ class Meal {
     required this.isLactoseFree,
     required this.isVegan,
     required this.isVegetarian,
-    required this.isFavorite,
+    this.isFavorite = false,
   });
 }

@@ -105,3 +105,6 @@ Desktop.ini
 
 # Do not ignore pubspec.lock: commit it for Flutter applications so
 # dependency versions remain reproducible across developers and CI.
+
+*_ahead/
+
