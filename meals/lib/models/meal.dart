@@ -1,5 +1,3 @@
-import './meal_category.dart';
-
 enum MealComplexity {
   simple,
   medium,

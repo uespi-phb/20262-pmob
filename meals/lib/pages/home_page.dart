@@ -6,12 +6,6 @@ import '../widgets/category_card.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  Widget _buildCategoryCard(BuildContext context, int index) {
-    final category = Database.categories[index];
-
-    return CategoryCard(category);
-  }
-
   @override
   Widget build(BuildContext context) {
     final categories = Database.categories;

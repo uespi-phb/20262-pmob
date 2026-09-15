@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals/pages/category_meals_page.dart';
 
 import '../models/meal_category.dart';
 
@@ -13,7 +14,22 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        debugPrint(category.title);
+
+        // Navigator.of(context).push(
+        //   MaterialPageRoute(
+        //     builder: (context) => CategoryMealsPage(),
+        //   ),
+        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CategoryMealsPage(category),
+          ),
+        );
+      },
+
       borderRadius: BorderRadius.circular(8.0),
       hoverColor: Colors.green,
       splashColor: Theme.of(context).primaryColor,
