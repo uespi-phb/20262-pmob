@@ -1,13 +1,21 @@
 enum MealComplexity {
-  simple,
-  medium,
-  difficult,
+  simple('Simples'),
+  medium('Média'),
+  difficult('Difícil');
+
+  const MealComplexity(this.name);
+
+  final String name;
 }
 
 enum MealCost {
-  cheap,
-  regular,
-  expensive,
+  cheap('Barato'),
+  regular('Justo'),
+  expensive('Caro');
+
+  const MealCost(this.name);
+
+  final String name;
 }
 
 class Meal {

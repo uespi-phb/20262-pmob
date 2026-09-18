@@ -14,10 +14,7 @@ class CategoryMealsPage extends StatelessWidget {
     final categoryMeals = Database.mealsByCategory(category.id);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(category.title),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text(category.title), centerTitle: true),
       body: ListView.builder(
         itemCount: categoryMeals.length,
         itemBuilder: (context, index) => MealCard(categoryMeals.elementAt(index)),

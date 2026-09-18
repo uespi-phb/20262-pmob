@@ -7,7 +7,7 @@ final dataMeals = <Meal>[
     title: 'Espaguete com Molho de Tomate',
     cost: MealCost.cheap,
     complexity: MealComplexity.simple,
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+    imageUrl: 'https://img.magnific.com/free-photo/homemade-fettuccine-with-bolognese-sauce-parmesan-generated-by-ai_188544-16140.jpg',
     durationInMinutes: 20,
     ingredients: [
       '4 Tomates',
