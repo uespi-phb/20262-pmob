@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
+import '../widgets/meal_info_card.dart';
 
 class MealDetailPage extends StatelessWidget {
   final Meal meal;
 
-  const new(this.meal, {super.key});
+  const MealDetailPage(this.meal, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,33 @@ class MealDetailPage extends StatelessWidget {
         title: Text(meal.title),
         centerTitle: true,
       ),
-      body: const Placeholder(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.network(
+              meal.imageUrl,
+              fit: BoxFit.cover,
+              webHtmlElementStrategy: WebHtmlElementStrategy.fallback,
+            ),
+            Column(
+              children: [
+                MealInfoCard(
+                  title: 'Ingredientes',
+                  itemCount: meal.ingredients.length,
+                  itemBuilder: (context, index) => Text(meal.ingredients[index]),
+                ),
+
+                MealInfoCard(
+                  title: 'Passos',
+                  itemCount: meal.steps.length,
+                  itemBuilder: (context, index) => Text(meal.steps[index]),
+                ),
+              ],
+            ),
+            // MealInfoCard(title: 'Passos'),
+          ],
+        ),
+      ),
     );
   }
 }
