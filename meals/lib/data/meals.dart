@@ -30,6 +30,7 @@ final dataMeals = <Meal>[
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
+    isFavorite: true,
   ),
   Meal(
     id: '2',

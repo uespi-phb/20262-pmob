@@ -32,7 +32,7 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
-  final bool isFavorite;
+  bool isFavorite;
 
   Meal({
     required this.id,

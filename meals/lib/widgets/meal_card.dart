@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meals/pages/meal_detail_page.dart';
 
+import '../pages/meal_detail_page.dart';
 import '../models/meal.dart';
 import './icon_label.dart';
 
