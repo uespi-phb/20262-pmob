@@ -21,6 +21,12 @@ class MealsApp extends StatelessWidget {
             backgroundColor: AppColors.primaryColor,
             foregroundColor: AppColors.foregroundColor,
           ),
+
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: Colors.pink, // Cor de fundo
+            selectedItemColor: Colors.white, // Cor dos itens selecionados
+            unselectedItemColor: Colors.pink.shade200, // Cor dos itens não selecionados
+          ),
         ),
         home: HomePage(),
       ),

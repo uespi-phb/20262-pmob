@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:meals/providers/meal_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../data/database.dart';
-import '../widgets/category_card.dart';
+import '../widgets/meals_list.dart';
+import '../widgets/meal_category_grid.dart' show MealCategoryGrid;
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +25,23 @@ class HomePage extends StatelessWidget {
         title: Text('Categorias'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: GridView.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 15.0,
-          crossAxisSpacing: 15.0,
-          childAspectRatio: 4 / 3,
-          children: categories.map((category) => CategoryCard(category)).toList(),
-        ),
+      body: (selectedIndex == 0)
+          ? MealCategoryGrid(categories: categories) //
+          // : FavoriteMealsList(),
+          : Consumer<MealProvider>(builder: (_, _, _) => FavoriteMealsList()),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: (index) {
+          if (selectedIndex != index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          }
+        },
+        items: [
+          BottomNavigationBarItem(label: 'Categorias', icon: Icon(Icons.category)),
+          BottomNavigationBarItem(label: 'Favoritos', icon: Icon(Icons.star)),
+        ],
       ),
     );
   }

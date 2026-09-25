@@ -15,8 +15,6 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        debugPrint(category.title);
-
         // Navigator.of(context).push(
         //   MaterialPageRoute(
         //     builder: (context) => CategoryMealsPage(),

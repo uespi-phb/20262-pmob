@@ -12,8 +12,6 @@ class MealDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('MealDetailPage.build()');
-
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
@@ -23,15 +21,10 @@ class MealDetailPage extends StatelessWidget {
         onPressed: () {
           final mealProvider = Provider.of<MealProvider>(context, listen: false);
 
-          debugPrint('fav: ${meal.isFavorite}');
-
           mealProvider.toggleFavorite(meal);
-
-          debugPrint('fav: ${meal.isFavorite}');
         },
         child: Consumer<MealProvider>(
           builder: (_, _, _) {
-            debugPrint('Counsumer.builder()');
             return Icon(meal.isFavorite ? Icons.star_rate : Icons.star_outline);
           },
         ),

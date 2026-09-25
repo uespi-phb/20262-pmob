@@ -9,4 +9,8 @@ class Database {
   static List<Meal> mealsByCategory(String categoryId) {
     return meals.where((meal) => meal.categories.contains(categoryId)).toList();
   }
+
+  static List<Meal> favoriteMeals() {
+    return meals.where((meal) => meal.isFavorite).toList();
+  }
 }
