@@ -3,6 +3,7 @@ import 'package:meals/providers/meal_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../data/database.dart';
+import '../widgets/app_drawer.dart';
 import '../widgets/meals_list.dart';
 import '../widgets/meal_category_grid.dart' show MealCategoryGrid;
 
@@ -25,9 +26,9 @@ class _HomePageState extends State<HomePage> {
         title: Text('Categorias'),
         centerTitle: true,
       ),
+      drawer: AppDrawer(),
       body: (selectedIndex == 0)
           ? MealCategoryGrid(categories: categories) //
-          // : FavoriteMealsList(),
           : Consumer<MealProvider>(builder: (_, _, _) => FavoriteMealsList()),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../pages/meal_detail_page.dart';
 import '../models/meal.dart';
+import '../providers/meal_provider.dart';
 import './icon_label.dart';
 
 class MealCard extends StatelessWidget {
@@ -27,35 +29,38 @@ class MealCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadiusGeometry.only(
-                      topLeft: const Radius.circular(15.0),
-                      topRight: const Radius.circular(15.0),
+              Consumer<MealProvider>(
+                builder: (_, _, _) => Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadiusGeometry.only(
+                        topLeft: const Radius.circular(15.0),
+                        topRight: const Radius.circular(15.0),
+                      ),
+                      child: Image.network(
+                        meal.imageUrl,
+                        webHtmlElementStrategy: WebHtmlElementStrategy.fallback,
+                      ),
                     ),
-                    child: Image.network(
-                      meal.imageUrl,
-                      webHtmlElementStrategy: WebHtmlElementStrategy.fallback,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 25.0,
-                    right: 25.0,
-                    child: Container(
-                      width: 250.0,
-                      color: Colors.black54,
-                      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                      child: Text(
-                        meal.title,
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
+
+                    Positioned(
+                      bottom: 25.0,
+                      right: 25.0,
+                      child: Container(
+                        width: 250.0,
+                        color: Colors.black54,
+                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                        child: Text(
+                          meal.title,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),

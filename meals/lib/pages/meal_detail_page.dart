@@ -20,7 +20,6 @@ class MealDetailPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           final mealProvider = Provider.of<MealProvider>(context, listen: false);
-
           mealProvider.toggleFavorite(meal);
         },
         child: Consumer<MealProvider>(
