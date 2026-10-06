@@ -14,9 +14,7 @@ class CategoryMealsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryMeals = Database.mealsByCategory(mealCategory.id);
-
-    debugPrint('CategoryMealsList.build()');
+    final categoryMeals = Database.mealsByCategory(mealCategory.id, true);
 
     return ListView.builder(
       itemCount: categoryMeals.length,

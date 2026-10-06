@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals/providers/meal_provider.dart';
+import 'package:meals/providers/app_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../data/database.dart';
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       drawer: AppDrawer(),
       body: (selectedIndex == 0)
           ? MealCategoryGrid(categories: categories) //
-          : Consumer<MealProvider>(builder: (_, _, _) => FavoriteMealsList()),
+          : Consumer<AppProvider>(builder: (_, _, _) => FavoriteMealsList()),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         onTap: (index) {

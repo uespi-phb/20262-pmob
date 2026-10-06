@@ -26,10 +26,11 @@ final dataMeals = <Meal>[
       'O molho estará pronto assim que o espaguete estiver.',
       'Sinta-se à vontade para adicionar um pouco de queijo em cima do prato acabado.',
     ],
-    isGlutenFree: false,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
+    restrictions: [
+      DietaryRestriction.gluten,
+      DietaryRestriction.vegetarian,
+      DietaryRestriction.vegan,
+    ],
     isFavorite: true,
   ),
   Meal(
@@ -53,10 +54,10 @@ final dataMeals = <Meal>[
       'Camada de presunto, o abacaxi e o queijo no pão branco',
       'Asse a torrada por cerca de 10 minutos no forno a 20 ° C',
     ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
+    restrictions: [
+      DietaryRestriction.gluten,
+      DietaryRestriction.lactose,
+    ],
     isFavorite: true,
   ),
   Meal(
@@ -82,10 +83,9 @@ final dataMeals = <Meal>[
       'Pãezinhos Bruch com ketchup',
       'Sirva hambúrguer com tomate, pepino e cebola',
     ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
+    restrictions: [
+      DietaryRestriction.gluten,
+    ],
   ),
   Meal(
     id: '4',
@@ -114,10 +114,10 @@ final dataMeals = <Meal>[
       'Retire e escorra em papel absorvente. Frite a salsa no óleo restante e escorra. ',
       'Coloque os schnitzels em um prato aquecido e sirva guarnecido com salsa e rodelas de limão.',
     ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
+    restrictions: [
+      DietaryRestriction.gluten,
+      DietaryRestriction.lactose,
+    ],
     isFavorite: true,
   ),
   Meal(
@@ -146,10 +146,9 @@ final dataMeals = <Meal>[
       'Prepare a salada',
       'Adicione cubos de salmão e molho',
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: true,
+    restrictions: [
+      DietaryRestriction.vegetarian,
+    ],
   ),
   Meal(
     id: '6',
@@ -178,10 +177,10 @@ final dataMeals = <Meal>[
       'Resfrie novamente por pelo menos 4 horas',
       'Sirva com casca de laranja',
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
+    restrictions: [
+      DietaryRestriction.lactose,
+      DietaryRestriction.vegetarian,
+    ],
   ),
   Meal(
     id: '7',
@@ -206,10 +205,10 @@ final dataMeals = <Meal>[
       'Aqueça uma frigideira ou frigideira levemente untada com óleo em fogo médio-alto.',
       'Despeje ou despeje a massa na frigideira, usando aproximadamente 1/4 de xícara para cada panqueca. Marrom em ambos os lados e servir quente.',
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
+    restrictions: [
+      DietaryRestriction.lactose,
+      DietaryRestriction.vegetarian,
+    ],
   ),
   Meal(
     id: '8',
@@ -236,10 +235,7 @@ final dataMeals = <Meal>[
       'Adicionar leite de coco',
       'Sirva com arroz',
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
+    restrictions: [],
     isFavorite: true,
   ),
   Meal(
@@ -283,10 +279,11 @@ final dataMeals = <Meal>[
       'Pare de misturar depois que a clara do ovo desaparecer. Divida a mistura entre 2 ramequins preparados. Coloque os ramequins na assadeira preparada. ',
       'Asse em forno pré-aquecido até que as brigas estejam estufadas e tenham subido acima do topo das bordas, 12 a 15 minutos.',
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
+    restrictions: [
+      DietaryRestriction.lactose,
+      DietaryRestriction.vegetarian,
+    ],
+
     isFavorite: false,
   ),
   Meal(
@@ -313,10 +310,11 @@ final dataMeals = <Meal>[
       'Misture com espargos, salada e molho',
       'Sirva com Baguette',
     ],
-    isGlutenFree: true,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
+    restrictions: [
+      DietaryRestriction.vegetarian,
+      DietaryRestriction.vegan,
+    ],
+
     isFavorite: true,
   ),
 ];

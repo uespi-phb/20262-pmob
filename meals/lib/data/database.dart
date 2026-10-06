@@ -6,7 +6,7 @@ class Database {
   static const categories = dataCategories;
   static final meals = dataMeals;
 
-  static List<Meal> mealsByCategory(String categoryId) {
+  static List<Meal> mealsByCategory(String categoryId, bool applyFilters) {
     return meals.where((meal) => meal.categories.contains(categoryId)).toList();
   }
 

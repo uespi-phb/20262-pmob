@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 enum MealComplexity {
   simple('Simples'),
   medium('Média'),
@@ -6,6 +8,39 @@ enum MealComplexity {
   const MealComplexity(this.name);
 
   final String name;
+}
+
+enum DietaryRestriction {
+  gluten(
+    title: 'Glútem',
+    activeIcon: Icons.water_drop_outlined,
+    inactiveIcon: Icons.water_drop,
+  ),
+  lactose(
+    title: 'Lactose',
+    activeIcon: Icons.breakfast_dining,
+    inactiveIcon: Icons.breakfast_dining_outlined,
+  ),
+  vegetarian(
+    title: 'Vegetariano',
+    activeIcon: Icons.eco,
+    inactiveIcon: Icons.eco_outlined,
+  ),
+  vegan(
+    title: 'Vegano',
+    activeIcon: Icons.spa,
+    inactiveIcon: Icons.spa_outlined,
+  );
+
+  DietaryRestriction({
+    required this.title,
+    required this.activeIcon,
+    required this.inactiveIcon,
+  });
+
+  final String title;
+  final IconData activeIcon;
+  final IconData inactiveIcon;
 }
 
 enum MealCost {
@@ -28,10 +63,7 @@ class Meal {
   final int durationInMinutes;
   final MealComplexity complexity;
   final MealCost cost;
-  final bool isGlutenFree;
-  final bool isLactoseFree;
-  final bool isVegan;
-  final bool isVegetarian;
+  final List<DietaryRestriction> restrictions;
   bool isFavorite;
 
   Meal({
@@ -44,10 +76,7 @@ class Meal {
     required this.durationInMinutes,
     required this.complexity,
     required this.cost,
-    required this.isGlutenFree,
-    required this.isLactoseFree,
-    required this.isVegan,
-    required this.isVegetarian,
+    required this.restrictions,
     this.isFavorite = false,
   });
 }

@@ -3,13 +3,28 @@ import 'package:provider/provider.dart';
 
 import '../pages/meal_detail_page.dart';
 import '../models/meal.dart';
-import '../providers/meal_provider.dart';
+import '../providers/app_provider.dart';
 import './icon_label.dart';
 
 class MealCard extends StatelessWidget {
   final Meal meal;
 
   const MealCard(this.meal, {super.key});
+
+  List<Widget> _mealFeatures(BuildContext context) {
+    return DietaryRestriction.values
+        .map(
+          (restriction) => Tooltip(
+            message: restriction.title,
+            child: Icon(
+              meal.restrictions.contains(restriction)
+                  ? restriction.activeIcon
+                  : restriction.inactiveIcon,
+            ),
+          ),
+        )
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +44,7 @@ class MealCard extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Consumer<MealProvider>(
+              Consumer<AppProvider>(
                 builder: (_, _, _) => Stack(
                   children: [
                     ClipRRect(
@@ -67,6 +82,11 @@ class MealCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    SizedBox(
+                      child: Row(
+                        children: _mealFeatures(context),
+                      ),
+                    ),
                     IconLabel(
                       icon: Icons.schedule,
                       label: '${meal.durationInMinutes} min',

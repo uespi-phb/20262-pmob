@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals/providers/meal_provider.dart';
+import 'package:meals/providers/app_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../models/meal.dart';
@@ -19,10 +19,10 @@ class MealDetailPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          final mealProvider = Provider.of<MealProvider>(context, listen: false);
+          final mealProvider = Provider.of<AppProvider>(context, listen: false);
           mealProvider.toggleFavorite(meal);
         },
-        child: Consumer<MealProvider>(
+        child: Consumer<AppProvider>(
           builder: (_, _, _) {
             return Icon(meal.isFavorite ? Icons.star_rate : Icons.star_outline);
           },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/app/colors.dart';
-import 'package:meals/providers/meal_provider.dart';
+import 'package:meals/providers/app_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../pages/home_page.dart';
@@ -10,8 +10,8 @@ class MealsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MealProvider>(
-      create: (context) => MealProvider(),
+    return ChangeNotifierProvider<AppProvider>(
+      create: (context) => AppProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
