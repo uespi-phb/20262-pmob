@@ -30,29 +30,38 @@ const json = '''
 ]
 ''';
 
+enum DifficultyLevel {
+  easy,
+  medium,
+  hard,
+}
+
 class Question {
   final String text;
-  final String difficult;
-  final List<String> levels;
+  final String difficulty;
+  final List<DifficultyLevel> levels;
 
   Question({
     required this.text,
-    required this.difficult,
+    required this.difficulty,
     required this.levels,
   });
 
   factory Question.from(dynamic data) {
+    final levels = data['relatedLevels'] as List<dynamic>;
     return Question(
       text: data['text'],
-      difficult: data['difficulty'],
-      levels: List<String>.from(data['relatedLevels']),
+      difficulty: data['difficulty'],
+      levels: List<DifficultyLevel>.generate(levels.length, (index) {
+        return DifficultyLevel.values.byName(levels[index]);
+      }),
     );
   }
-}
 
-Object? cast(Object? key, Object? value) {
-  print('key=$key\tvalue=$value');
-  return null;
+  @override
+  String toString() {
+    return 'Question($text,$difficulty, $levels)';
+  }
 }
 
 void main() {
@@ -60,8 +69,10 @@ void main() {
   final List<Question> questions = [];
 
   for (var q in data) {
-    print('q=$q');
+    // print('q=$q');
 
     questions.add(Question.from(q));
   }
+
+  print(questions);
 }
