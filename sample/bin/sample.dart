@@ -1,34 +1,5 @@
 import 'dart:convert';
-
-const json = '''
-[
-  {
-    "text": "O que é Flutter?",
-    "difficulty": "easy",
-    "relatedLevels": ["easy", "medium"]
-  },
-  {
-    "text": "Qual linguagem é utilizada pelo Flutter?",
-    "difficulty": "easy",
-    "relatedLevels": ["easy"]
-  },
-  {
-    "text": "O que é um StatefulWidget?",
-    "difficulty": "medium",
-    "relatedLevels": ["easy", "medium"]
-  },
-  {
-    "text": "Qual a diferença entre hot reload e hot restart?",
-    "difficulty": "medium",
-    "relatedLevels": ["medium", "hard"]
-  },
-  {
-    "text": "Explique o ciclo de vida de um widget com estado.",
-    "difficulty": "hard",
-    "relatedLevels": ["medium", "hard"]
-  }
-]
-''';
+import 'dart:io';
 
 enum DifficultyLevel {
   easy,
@@ -60,11 +31,12 @@ class Question {
 
   @override
   String toString() {
-    return 'Question($text,$difficulty, $levels)';
+    return 'Question($text)';
   }
 }
 
 void main() {
+  final json = File('data.json').readAsStringSync();
   final data = jsonDecode(json);
   final List<Question> questions = [];
 
