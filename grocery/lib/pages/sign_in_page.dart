@@ -1,6 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:grocery/shared/validators/composite_validator.dart';
+import 'package:grocery/shared/validators/email_validator.dart';
+import 'package:grocery/shared/validators/validator.dart';
 
+import '../shared/validators/password_validator.dart';
+import '../shared/validators/required_validator.dart';
 import '../shared/widgets/icon_text_form_field.dart';
 
 class SignInPage extends StatelessWidget {
@@ -89,16 +94,21 @@ class SignInPage extends StatelessWidget {
                   child: Column(
                     children: [
                       IconTextFormField(
-                        labelText: 'E-mail',
+                        labelText: 'Usuário',
                         hintText: 'E-mail do usuário',
                         prefixIcon: Icons.email,
                         margin: EdgeInsets.symmetric(vertical: 8.0),
+                        validator: CompositeValidator([
+                          RequiredValidator(fieldName: 'Usuário'),
+                          EmailValidator(fieldName: 'Usuário'),
+                        ]),
                       ),
                       IconTextFormField(
                         labelText: 'Senha',
                         hintText: 'Senha do usuário',
                         prefixIcon: Icons.lock,
                         margin: EdgeInsets.symmetric(vertical: 8.0),
+                        validator: PasswordValidator(fieldName: 'Senha'),
                         obscuredText: true,
                       ),
                       ElevatedButton(

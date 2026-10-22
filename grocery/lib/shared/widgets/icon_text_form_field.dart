@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../validators/validator.dart';
+
 class IconTextFormField extends StatelessWidget {
   final String? labelText;
   final String? hintText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final EdgeInsetsGeometry? margin;
+  final Validator? validator;
   final bool obscuredText;
 
   const IconTextFormField({
@@ -15,6 +18,7 @@ class IconTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.margin,
+    this.validator,
     this.obscuredText = false,
   });
 
@@ -30,10 +34,7 @@ class IconTextFormField extends StatelessWidget {
       padding: margin ?? EdgeInsets.zero,
       child: TextFormField(
         obscureText: obscuredText,
-        validator: (value) {
-          debugPrint('validator "$labelText" called!');
-          return "error validanting";
-        },
+        validator: validator?.validate,
         decoration: InputDecoration(
           isDense: true,
           labelText: labelText,
