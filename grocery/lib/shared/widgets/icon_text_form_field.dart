@@ -30,6 +30,10 @@ class IconTextFormField extends StatelessWidget {
       padding: margin ?? EdgeInsets.zero,
       child: TextFormField(
         obscureText: obscuredText,
+        validator: (value) {
+          debugPrint('validator "$labelText" called!');
+          return "error validanting";
+        },
         decoration: InputDecoration(
           isDense: true,
           labelText: labelText,

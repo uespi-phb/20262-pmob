@@ -4,7 +4,15 @@ import 'package:flutter/material.dart';
 import '../shared/widgets/icon_text_form_field.dart';
 
 class SignInPage extends StatelessWidget {
-  const new({super.key});
+  final formKey = GlobalKey<FormState>();
+
+  new({super.key});
+
+  void validateForm() {
+    debugPrint('Submit Form');
+
+    formKey.currentState?.validate();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,85 +82,90 @@ class SignInPage extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
             ),
-            child: Form(
-              child: Column(
-                children: [
-                  IconTextFormField(
-                    labelText: 'E-mail',
-                    hintText: 'E-mail do usuário',
-                    prefixIcon: Icons.email,
-                    margin: EdgeInsets.symmetric(vertical: 8.0),
-                  ),
-                  IconTextFormField(
-                    labelText: 'Senha',
-                    hintText: 'Senha do usuário',
-                    prefixIcon: Icons.lock,
-                    margin: EdgeInsets.symmetric(vertical: 8.0),
-                    obscuredText: true,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: theme.primaryColor,
-                      foregroundColor: Colors.white,
-                      minimumSize: const Size.fromHeight(48),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                    ),
-
-                    child: Text('Entrar'),
-                  ),
-                  Align(
-                    alignment: AlignmentGeometry.centerRight,
-                    child: TextButton(
-                      style: TextButton.styleFrom(foregroundColor: Colors.red),
-                      onPressed: () {},
-                      child: const Text('Esqueci a Senha'),
-                    ),
-                  ),
-                  Row(
+            child: Column(
+              children: [
+                Form(
+                  key: formKey,
+                  child: Column(
                     children: [
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey.withAlpha(128),
-                          thickness: 2.0,
-                        ),
+                      IconTextFormField(
+                        labelText: 'E-mail',
+                        hintText: 'E-mail do usuário',
+                        prefixIcon: Icons.email,
+                        margin: EdgeInsets.symmetric(vertical: 8.0),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text('OU'),
+                      IconTextFormField(
+                        labelText: 'Senha',
+                        hintText: 'Senha do usuário',
+                        prefixIcon: Icons.lock,
+                        margin: EdgeInsets.symmetric(vertical: 8.0),
+                        obscuredText: true,
                       ),
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey.withAlpha(128),
-                          thickness: 2.0,
+                      ElevatedButton(
+                        onPressed: validateForm,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: theme.primaryColor,
+                          foregroundColor: Colors.white,
+                          minimumSize: const Size.fromHeight(48),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
                         ),
+
+                        child: Text('Entrar'),
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: theme.primaryColor,
-                        minimumSize: const Size.fromHeight(48.0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ),
-                        side: BorderSide(
-                          width: 2.0,
-                          color: theme.primaryColor,
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/');
-                      },
-                      child: const Text('Criar Conta'),
-                    ),
+                ),
+                Align(
+                  alignment: AlignmentGeometry.centerRight,
+                  child: TextButton(
+                    style: TextButton.styleFrom(foregroundColor: Colors.red),
+                    onPressed: () {},
+                    child: const Text('Esqueci a Senha'),
                   ),
-                ],
-              ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.withAlpha(128),
+                        thickness: 2.0,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text('OU'),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.withAlpha(128),
+                        thickness: 2.0,
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: theme.primaryColor,
+                      minimumSize: const Size.fromHeight(48.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      side: BorderSide(
+                        width: 2.0,
+                        color: theme.primaryColor,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/');
+                    },
+                    child: const Text('Criar Conta'),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
