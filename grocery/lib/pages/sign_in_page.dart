@@ -2,21 +2,27 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery/shared/validators/composite_validator.dart';
 import 'package:grocery/shared/validators/email_validator.dart';
-import 'package:grocery/shared/validators/validator.dart';
 
+import '../domain/user.dart';
 import '../shared/validators/password_validator.dart';
 import '../shared/validators/required_validator.dart';
 import '../shared/widgets/icon_text_form_field.dart';
 
 class SignInPage extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   new({super.key});
 
   void validateForm() {
     debugPrint('Submit Form');
 
-    formKey.currentState?.validate();
+    if (formKey.currentState?.validate() ?? false) {
+      final user = User(username: usernameController.text, password: passwordController.text);
+      debugPrint('username: $user');
+      debugPrint('username: ${user.toJson()}');
+    }
   }
 
   @override
@@ -98,6 +104,7 @@ class SignInPage extends StatelessWidget {
                         hintText: 'E-mail do usuário',
                         prefixIcon: Icons.email,
                         margin: EdgeInsets.symmetric(vertical: 8.0),
+                        controller: usernameController,
                         validator: CompositeValidator([
                           RequiredValidator(fieldName: 'Usuário'),
                           EmailValidator(fieldName: 'Usuário'),
@@ -108,6 +115,7 @@ class SignInPage extends StatelessWidget {
                         hintText: 'Senha do usuário',
                         prefixIcon: Icons.lock,
                         margin: EdgeInsets.symmetric(vertical: 8.0),
+                        controller: passwordController,
                         validator: PasswordValidator(fieldName: 'Senha'),
                         obscuredText: true,
                       ),
